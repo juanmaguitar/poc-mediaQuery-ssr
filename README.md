@@ -1,48 +1,58 @@
-# Quick SSR test for `sui-components`
+# POC: MediaQuery component
 
-## Prepare the component
-Things to do **from the component's folder** (the component you want to test)
+## Suggestions 
 
-1.-  Build a _production_ version
+👤 https://stackblitz.com/edit/react-dosthe
+
 ```
-npm run build
+// breakpoints definidos en el componente
+import {BREAKPOINTS} from '@s-ui/react-content-query'
+
+/** Esto es una, otra es que fuese simplemente un array con todos los breakpoints disponibles y pillar los index del Object.keys. :) Nos ayuda a comparar luego y hacer el mayor o menor que.
+const BREAKPOINTS = {
+  xs: 0,
+  s: 1,
+  m: 2,
+  l: 3,
+  xl: 4
+}
+*/
+
+class CardList extends Component {
+  render () {
+    return (
+      <SuiContentQuery>
+        {(breakpointKey) => {
+          return this.props.cards.map(card => (
+            <Card
+              orientation={breakpointKey >= BREAKPOINTS['xs'] ? 'horizontal' : 'vertical'}
+              size={breakpointKey === 's' ? 'small' : 'default'
+            />
+          ))
+        }}
+      </SuiContentQuery>
+    )
+  }
+}
 ```
 
-2.- Link this using NPM so you can then use it directly from other projects
-_For example from the `AtomTooltip` component's folder (`package.json` → `"name": "@s-ui/react-atom-tooltip"`) we can do_
-```
-npm link
-```
+### References 
 
-## On this project
+👉  `[2888]` https://github.com/contra/react-responsive
+👉  `[1361]` https://github.com/ReactTraining/react-media
+👉  `[586]` https://github.com/d6u/react-container-query
 
-Steps to follow to test the `sui-components` component
+## Breakpoints
 
-1-. clone this repo
+`https://github.com/SUI-Components/sui-theme/blob/master/src/layout/_breakpoints.scss`
 ```
-git clone XXXXXX
+$breakpoints: (
+  xxs: 0,
+  xs: 480px,
+  s: 600px,
+  m: 840px,
+  l: 960px,
+  xl: 1280px,
+  xxl: 1440px
+) !default;
 ```
-
-2.- install its dependencies
-```
-npm install
-```
-
-3.- install the component previously linked using
-_The name used here corresponds to the `name` property in the `package.json` of the component previously linked_
-```
-npm link @s-ui/react-atom-tooltip
-```
-
-4.- modify the code at `pages/index.js` to use the component
-
-5.- launch a SSR app using this component by doing...
-```
-npm run dev
-```
-or 
-```
-npm run dev -- -p 3002
-````
-to specify a PORT
-
