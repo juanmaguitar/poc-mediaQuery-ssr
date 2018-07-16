@@ -1,5 +1,13 @@
 # POC: MediaQuery component
 
+## Launching the DEMO
+
+```
+yarn install
+yarn dev
+```
+
+
 ## Suggestions 
 
 👤 https://stackblitz.com/edit/react-dosthe
@@ -38,9 +46,9 @@ class CardList extends Component {
 
 ### References 
 
-👉  `[2888]` https://github.com/contra/react-responsive
-👉  `[1361]` https://github.com/ReactTraining/react-media
-👉  `[586]` https://github.com/d6u/react-container-query
+- 👉  `[2888]` https://github.com/contra/react-responsive
+- 👉  `[1361]` https://github.com/ReactTraining/react-media
+- 👉  `[586]` https://github.com/d6u/react-container-query
 
 ## Breakpoints
 
