@@ -1,5 +1,5 @@
 import React, { Fragment } from "react"
-import MediaQuery, { MediaQueryFactory } from "../src/components/MediaQuery"
+import MediaQuery, { MediaQueryFactory } from "react-media-query"
 import './styles.scss'
 
 const BREAKPOINTS = {
