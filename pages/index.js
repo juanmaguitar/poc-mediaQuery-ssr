@@ -15,10 +15,10 @@ const App = () => (
   <Fragment>
     <MediaQuery>
       { 
-        ({ M, L, XL, XXL }) => {
-          if (M) return <p>Tablet</p>
+        ({ M, L, XL }) => {
+          if (XL) return <p>LargeDesktop</p>
           if (L) return <p>Desktop</p>
-          if (XL || XXL) return <p>LargeDesktop</p>
+          if (M) return <p>Tablet</p>
           return <p>Mobile</p>
         }
       }
@@ -40,10 +40,10 @@ const App = () => (
     <hr/>
     <MediaQueryBootstrap>
       { 
-        ({ SM, MD, LG, XL }) => {
-          if (MD) return <p>Tablet</p>
-          if (LG) return <p>Desktop</p>
+        ({ MD, LG, XL }) => {
           if (XL) return <p>LargeDesktop</p>
+          if (LG) return <p>Desktop</p>
+          if (MD) return <p>Tablet</p>
           return <p>Mobile</p>
         }
       }

@@ -17,9 +17,7 @@
     "next": "^6.1.1",
     "node-sass": "^4.9.2",
     "react": "^16.4.1",
-    "react-container-query": "^0.11.0",
     "react-dom": "^16.4.1",
-    "react-media-query": "github:juanmaguitar/react-media-query",
-    "react-responsive": "^4.1.0"
+    "react-media-query": "github:juanmaguitar/react-media-query"
   }
 }
