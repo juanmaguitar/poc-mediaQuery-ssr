@@ -37,6 +37,29 @@ const App = () => (
         }
       }
     </MediaQuery>
+    <hr />
+    <div style={ { width: '400px' }}>
+      <MediaQuery viewport>
+        {({ M, L, XL }) => {
+          if (XL) return <p>LargeDesktop</p>;
+          if (L) return <p>Desktop</p>;
+          if (M) return <p>Tablet</p>;
+          return <p>Mobile</p>;
+        }}
+      </MediaQuery>
+      <MediaQuery viewport>
+        {({ XS, S, M, L, XL, XXL }) => {
+          let responsiveRender = <p>default</p>;
+          if (XS) responsiveRender = <p className="XS">XS</p>;
+          if (S) responsiveRender = <p className="S">S</p>;
+          if (M) responsiveRender = <p className="M">M</p>;
+          if (L) responsiveRender = <p className="L">L</p>;
+          if (XL) responsiveRender = <p className="XL">XL</p>;
+          if (XXL) responsiveRender = <p className="XXL">XXL</p>;
+          return <div className="responsiveContainer">{responsiveRender}</div>;
+        }}
+      </MediaQuery>
+    </div>
     <hr/>
     <MediaQueryBootstrap>
       { 
